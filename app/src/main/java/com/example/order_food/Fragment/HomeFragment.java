@@ -2,6 +2,7 @@ package com.example.order_food.Fragment;
 
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -82,8 +84,33 @@ public class HomeFragment extends Fragment {
 
         RecyclerView recView = view.findViewById(R.id.rec_popular_food);
         recView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
         recView.setAdapter(new PopularAdapter(foods));
+
+        TextView btnNew = view.findViewById(R.id.btn_home_new);
+        TextView btnPopular = view.findViewById(R.id.btn_home_popular);
+
+        ((TextView)view.findViewById(R.id.btn_home_new)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View newView) {
+                int textColor = ContextCompat.getColor(requireContext(), R.color.white);
+                btnNew.setTextColor(textColor);
+                btnNew.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.greenbuttongradient));
+
+                btnPopular.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
+                btnPopular.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.textviewshape));
+            }
+        });
+
+        ((TextView)view.findViewById(R.id.btn_home_popular)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View newView) {
+                int textColor = ContextCompat.getColor(requireContext(), R.color.white);
+                btnPopular.setTextColor(textColor);
+                btnPopular.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.greenbuttongradient));
+                btnNew.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
+                btnNew.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.textviewshape));
+            }
+        });
 
         return view;
     }
