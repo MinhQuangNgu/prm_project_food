@@ -69,6 +69,7 @@ public class HomeFragment extends Fragment {
         PopularFoodCard food2 = new PopularFoodCard(1,R.drawable.discount,"Food 2",15);
         PopularFoodCard food3 = new PopularFoodCard(1,R.drawable.discount2,"Food 3",20);
 
+        foods.clear();
         foods.add(food1);
         foods.add(food2);
         foods.add(food3);

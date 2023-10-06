@@ -17,19 +17,21 @@ public class User {
     @ColumnInfo(name = "role")
     public String role = "user";
 
-    public User(int uid, String name, String email, String password) {
+    @ColumnInfo(name = "address")
+    public String address;
+
+
+    public User(int uid, String name, String email, String password,String address) {
         this.id = uid;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.address = address;
     }
     public User(){
 
     }
 
-    public int getUid() {
-        return id;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -67,5 +69,25 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

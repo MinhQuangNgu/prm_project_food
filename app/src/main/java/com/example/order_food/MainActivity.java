@@ -9,21 +9,26 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.order_food.Fragment.CartFragment;
+import com.example.order_food.Fragment.FavoriteFragment;
 import com.example.order_food.Fragment.HistoryFragment;
 import com.example.order_food.Fragment.HomeFragment;
 import com.example.order_food.Fragment.ProfileFragment;
 import com.example.order_food.Fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     HomeFragment homeFragment;
     CartFragment cartFragment;
     SearchFragment searchFragment;
     ProfileFragment profileFragment;
     HistoryFragment historyFragment;
+
+    FavoriteFragment favoriteFragment;
 
     FragmentManager fragmentManager;
 
@@ -38,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         cartFragment = CartFragment.newInstance(null,null);
         searchFragment = SearchFragment.newInstance(null,null);
         historyFragment = HistoryFragment.newInstance(null,null);
-        profileFragment = ProfileFragment.newInstance(null,null);
+        profileFragment = ProfileFragment.newInstance();
+        favoriteFragment = FavoriteFragment.newInstance();
 
         fragmentManager = getSupportFragmentManager();
 
@@ -80,5 +86,20 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        ((ImageView)findViewById(R.id.favorite_icons)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                frag_tran = fragmentManager.beginTransaction();
+                frag_tran.replace(R.id.fragmentContainerView,favoriteFragment,"favoriteFragment");
+                frag_tran.commit();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View view) {
+
+
     }
 }
