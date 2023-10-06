@@ -20,18 +20,19 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
         android:layout_marginTop="20dp"
         android:text="Explore Your Favorite Foods"
         android:textSize="22sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="22dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginStart="60dp"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView7"
         app:srcCompat="@drawable/bell" />
 
