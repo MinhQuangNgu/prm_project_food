@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        homeFragment = HomeFragment.newInstance(null,null);
+        homeFragment = HomeFragment.newInstance();
         cartFragment = CartFragment.newInstance(null,null);
         searchFragment = SearchFragment.newInstance(null,null);
         historyFragment = HistoryFragment.newInstance(null,null);

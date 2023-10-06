@@ -29,23 +29,20 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
 
+    List<PopularFoodCard> foods = new ArrayList<>();
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
-    private String mParam2;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
 
-    public static HomeFragment newInstance(String param1, String param2) {
+
+
+    public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,10 +50,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -75,8 +68,6 @@ public class HomeFragment extends Fragment {
         PopularFoodCard food1 = new PopularFoodCard(1,R.drawable.discoun1,"Food 1",12);
         PopularFoodCard food2 = new PopularFoodCard(1,R.drawable.discount,"Food 2",15);
         PopularFoodCard food3 = new PopularFoodCard(1,R.drawable.discount2,"Food 3",20);
-
-        List<PopularFoodCard> foods = new ArrayList<>();
 
         foods.add(food1);
         foods.add(food2);
@@ -98,6 +89,15 @@ public class HomeFragment extends Fragment {
 
                 btnPopular.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
                 btnPopular.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.textviewshape));
+
+                foods.clear();
+                foods.add(food3);
+                foods.add(food1);
+                foods.add(food2);
+                foods.add(food2);
+                foods.add(food3);
+
+                recView.getAdapter().notifyDataSetChanged();
             }
         });
 
@@ -109,6 +109,14 @@ public class HomeFragment extends Fragment {
                 btnPopular.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.greenbuttongradient));
                 btnNew.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
                 btnNew.setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.textviewshape));
+
+
+                foods.clear();
+                foods.add(food1);
+                foods.add(food2);
+                foods.add(food3);
+
+                recView.getAdapter().notifyDataSetChanged();
             }
         });
 
