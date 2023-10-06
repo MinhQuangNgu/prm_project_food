@@ -20,13 +20,17 @@ public class User {
     @ColumnInfo(name = "address")
     public String address;
 
+    @ColumnInfo(name = "phone")
+    public String phone;
 
-    public User(int uid, String name, String email, String password,String address) {
+
+    public User(int uid, String name, String email, String password,String address,String phone) {
         this.id = uid;
         this.name = name;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.phone = phone;
     }
     public User(){
 
@@ -89,5 +93,13 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
